@@ -1,0 +1,170 @@
+
+
+*,*:before,*:after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100%;
+
+
+}
+
+.wrapper {
+
+}
+
+.container {
+	max-width: 1180px;
+	margin: 0px auto;
+	padding: 0px auto;
+}
+
+.header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 50;
+}
+.header:before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: gray;
+}
+
+.header__body {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	justify-content: space-between;
+	height: 80px;
+	align-items: center;
+
+}
+.header__logo {
+	flex: 0 0 60px;
+	border-radius: 35%;
+	overflow: hidden;
+}
+.header__logo {
+	max-width: 100%;
+	display: block;
+}
+
+.logo {
+	max-width: 100%;
+	display:block;
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+
+}
+
+.header__burger {}
+.header__menu {
+	font-family: 'Montserrat Alternates', sans-serif;
+}
+.header__list {
+	display:flex;
+}
+
+.header__list li {
+	list-style: none;
+	margin-right: 20px
+}
+
+.header__link {
+	color: white;
+	font-size: 18px;
+	text-decoration: none;
+}
+.content {
+	padding:100px 0px 0px 0px;
+	background-color: #F2F2F2;
+	margin-left: auto;
+	margin-right: auto;
+	width: 75em;
+	height: 900px;
+}
+.content__text {
+	font-size: 18px;
+	text-align: center;
+}
+
+.main__group {
+	display: flex;
+	justify-content: space-around;
+	list-style: none;
+	padding-top: 20px;
+	border-bottom: 1px solid grey;
+}
+
+.text {
+	text-align: center;
+}
+
+.main__group li {
+	display: flex;
+	padding-bottom: 10px;
+	font-family: 'Montserrat Alternates', sans-serif;
+	font-size: 18px;
+
+}
+
+.services{
+	display: flex;
+	justify-content: space-around;
+	padding-top: 40px;
+	border-bottom: 1px solid grey;
+	text-decoration: none; 
+
+}
+
+.services p {
+	font-family: 'Montserrat Alternates', sans-serif;
+	color: black;
+	font-size: 25px;
+}
+
+.services a {
+	list-style: none;
+	text-decoration: none;
+}
+
+
+
+
+
+
+footer {
+	width: 100%;
+	height: auto;
+	background: grey;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 5px;
+	position: fixed;
+    bottom: 0;
+}
+
+footer a{
+	text-decoration: none;
+	margin-right: 25px;
+}
+
+
+.brd {
+	padding-bottom: 40px;
+	list-style: none;
+	/*border: 3px double black; 
+    background: none;
+    width: 200px;*/
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css" class="">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">        
+            <div class="container">
+                <div class="header__body">
+                    <a href="" class="header__logo">
+                        <img src="img/logo.svg" height="50" width="50" alt="" class="">
+                    </a>
+                    <div class="logo">
+                        <img src="img/logo.png" width="240" height="105" alt="" class="">
+                    </div>
+                    <nav class="header__menu">
+                        <ul class="header__list">
+                            <li class="">
+                                <a href="" class="header__link">Главная</a>
+                            </li>
+                            <li class="">
+                                <a href="" class="header__link">Апартаменты</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div class="content">
+            <div class="container">
+                <div class="slider">
+    <div class="slider__wrapper">
+      <div class="slider__item">
+        <div class="input__item" style="height: 250px; background: #585858;">
+            <p>Надежность</p>
+            <img src="img/guarantee.svg" alt="">
+        </div>
+      </div>
+      <div class="slider__item">
+        <div class="input__item" style="height: 250px; background: #585858;">
+            <p>Качество</p>
+            <img src="img/quality.svg" alt="">
+        </div>
+      </div>
+      <div class="slider__item">
+        <div class="input__item" style="height: 250px; background: #585858;">
+           <p>Гарантия</p>
+           <img src="img/percent.svg" alt="">
+        </div>
+      </div>
+    </div>
+    <a class="slider__control slider__control_left" href="#" role="button"></a>
+    <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>
+  </div>
+  <div class="information">
+    <h3>Немного о нас</h3>
+    <p>"Administration" - организация, которая поможет вам быстро забронировать номер в гостиницы без лишних действий! Для нас на 1-ом месте клиент!</p>
+    <p>Мы прислушиваемся к мнению пользователей, если вас что-то не устраивает на сайте, будь то дизайн, либо его функционал, просьба писать нам: dimychtitov@mail.ru</p>
+    <li>Также, если у вас возникли вопросы, можете обратится по телефону</li>
+    <li>+7(901)-053-10-30</li>
+    <li></li>
+  </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer__logo">
+            <a href="" class="">
+                <img src="img/logo.png" alt="" class="">
+            </a>
+        </div>
+        <nav>
+            <a href="">
+                <img src="img/vk.svg" alt="" width="45px" height="45px" >
+            </a>
+            <a href="">
+                <img src="img/instagram.svg" alt="" width="45px" height="45px">
+            </a>
+            <a href="">
+                <img src="img/facebook.svg" alt="" width="45px" height="45px" >
+            </a>
+            <a href="">
+                <img src="img/email.svg" alt="" width="45px" height="45px" >
+            </a>
+            <a href="">
+                <img src="img/twit.svg" alt="" width="45px" height="45px" >
+            </a>
+        </nav>
+
+    </footer>
+
+    <script>
+    'use strict';
+    var multiItemSlider = (function () {
+      return function (selector, config) {
+        var
+          _mainElement = document.querySelector(selector), // основный элемент блока
+          _sliderWrapper = _mainElement.querySelector('.slider__wrapper'), // обертка для .slider-item
+          _sliderItems = _mainElement.querySelectorAll('.slider__item'), // элементы (.slider-item)
+          _sliderControls = _mainElement.querySelectorAll('.slider__control'), // элементы управления
+          _sliderControlLeft = _mainElement.querySelector('.slider__control_left'), // кнопка "LEFT"
+          _sliderControlRight = _mainElement.querySelector('.slider__control_right'), // кнопка "RIGHT"
+          _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width), // ширина обёртки
+          _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width), // ширина одного элемента    
+          _positionLeftItem = 0, // позиция левого активного элемента
+          _transform = 0, // значение транфсофрмации .slider_wrapper
+          _step = _itemWidth / _wrapperWidth * 100, // величина шага (для трансформации)
+          _items = []; // массив элементов
+        // наполнение массива _items
+        _sliderItems.forEach(function (item, index) {
+          _items.push({ item: item, position: index, transform: 0 });
+        });
+
+        var position = {
+          getMin: 0,
+          getMax: _items.length - 1,
+        }
+
+        var _transformItem = function (direction) {
+          if (direction === 'right') {
+            if ((_positionLeftItem + _wrapperWidth / _itemWidth - 1) >= position.getMax) {
+              return;
+            }
+            if (!_sliderControlLeft.classList.contains('slider__control_show')) {
+              _sliderControlLeft.classList.add('slider__control_show');
+            }
+            if (_sliderControlRight.classList.contains('slider__control_show') && (_positionLeftItem + _wrapperWidth / _itemWidth) >= position.getMax) {
+              _sliderControlRight.classList.remove('slider__control_show');
+            }
+            _positionLeftItem++;
+            _transform -= _step;
+          }
+          if (direction === 'left') {
+            if (_positionLeftItem <= position.getMin) {
+              return;
+            }
+            if (!_sliderControlRight.classList.contains('slider__control_show')) {
+              _sliderControlRight.classList.add('slider__control_show');
+            }
+            if (_sliderControlLeft.classList.contains('slider__control_show') && _positionLeftItem - 1 <= position.getMin) {
+              _sliderControlLeft.classList.remove('slider__control_show');
+            }
+            _positionLeftItem--;
+            _transform += _step;
+          }
+          _sliderWrapper.style.transform = 'translateX(' + _transform + '%)';
+        }
+
+        // обработчик события click для кнопок "назад" и "вперед"
+        var _controlClick = function (e) {
+          if (e.target.classList.contains('slider__control')) {
+            e.preventDefault();
+            var direction = e.target.classList.contains('slider__control_right') ? 'right' : 'left';
+            _transformItem(direction);
+          }
+        };
+
+        var _setUpListeners = function () {
+          // добавление к кнопкам "назад" и "вперед" обрботчика _controlClick для событя click
+          _sliderControls.forEach(function (item) {
+            item.addEventListener('click', _controlClick);
+          });
+        }
+
+        // инициализация
+        _setUpListeners();
+
+        return {
+          right: function () { // метод right
+            _transformItem('right');
+          },
+          left: function () { // метод left
+            _transformItem('left');
+          }
+        }
+
+      }
+    }());
+
+    var slider = multiItemSlider('.slider')
+
+  </script>
+</body>
+</html>
